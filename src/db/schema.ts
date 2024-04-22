@@ -1,8 +1,8 @@
 import { doublePrecision, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
-export const products = pgTable('products', {
+export const productsTable = pgTable('products', {
 	id: text('id').primaryKey().default('uuid_generate_v4()'),
-	imageId: text('image_id').notNull(),
+	imageUrl: text('image_url').notNull(),
 	name: text('name').notNull(),
 	price: doublePrecision('price').notNull(),
 	description: text('description'),
@@ -10,4 +10,4 @@ export const products = pgTable('products', {
 	updatedAt: timestamp('updated_at').defaultNow(),
 });
 
-export type Product = typeof products.$inferSelect;
+export type Product = typeof productsTable.$inferSelect;
