@@ -1,7 +1,13 @@
-import { doublePrecision, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import {
+	doublePrecision,
+	pgTable,
+	text,
+	timestamp,
+	uuid,
+} from 'drizzle-orm/pg-core';
 
 export const productsTable = pgTable('products', {
-	id: text('id').primaryKey().default('uuid_generate_v4()'),
+	id: uuid('id').defaultRandom().primaryKey(),
 	imageUrl: text('image_url').notNull(),
 	name: text('name').notNull(),
 	price: doublePrecision('price').notNull(),
