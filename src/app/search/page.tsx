@@ -8,6 +8,8 @@ import { redirect } from 'next/navigation';
 import { Product, db, productsTable } from '@/db';
 import { vectorize } from '@/lib';
 
+export const dynamic = 'force-dynamic';
+
 const index = new Index<Product>();
 
 interface SearchPageProps {
