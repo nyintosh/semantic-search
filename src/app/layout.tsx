@@ -8,7 +8,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Magic Search',
+	title: 'Semantic Search',
+	description: `An elegant hybrid search engine that significantly enhances search precision by seamlessly querying semantically related results using embedding AI models.`,
 };
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
@@ -45,13 +46,13 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 							<Icons.Sparkles className='size-16' />
 
 							<h1 className='text-4xl font-bold tracking-tight sm:text-6xl'>
-								Magic Search
+								Semantic Search
 							</h1>
 
-							<p className='max-w-xl text-center text-lg text-slate-700'>
-								An elegant hybrid search engine that significantly boosts search
-								precision through seamless querying of semantically related
-								results.
+							<p className='max-w-2xl text-center text-slate-700'>
+								An elegant hybrid search engine that significantly enhances
+								search precision by seamlessly querying semantically related
+								results using embedding AI models.
 							</p>
 
 							<div className='mx-auto mt-12 flex w-full max-w-2xl flex-col'>
