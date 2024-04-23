@@ -15,7 +15,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
-				<div className='relative isolate min-h-screen overflow-hidden border-b border-gray-200 bg-white text-slate-900'>
+				<div className='relative isolate min-h-screen overflow-hidden bg-white text-slate-900'>
 					<svg
 						className='absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]'
 						aria-hidden='true'

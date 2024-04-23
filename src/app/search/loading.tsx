@@ -1,4 +1,4 @@
-const SearchPageLoading = () => {
+const SearchPageLoader = () => {
 	return (
 		<ul className='mt-1 divide-y divide-zinc-100 rounded-md border bg-white py-4 shadow'>
 			{[...new Array(3)].map((_, idx) => (
@@ -25,4 +25,4 @@ const SearchPageLoading = () => {
 	);
 };
 
-export default SearchPageLoading;
+export default SearchPageLoader;

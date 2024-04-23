@@ -51,7 +51,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 
 	if (products.length <= 0) {
 		return (
-			<div className='rounded-b-md bg-white py-4 text-center shadow-md'>
+			<div className='mt-1 rounded-md border bg-white py-4 text-center shadow'>
 				<XIcon className='mx-auto size-8 text-gray-400' />
 
 				<h3 className='mt-2 text-sm font-semibold text-gray-900'>
@@ -79,9 +79,9 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 							<Image
 								className='rounded-lg'
 								src={`/images/${product.imageUrl}`}
-								alt={product.imageUrl}
-								loading='eager'
+								alt={`Image of ${product.name}`}
 								fill
+								loading='eager'
 							/>
 						</div>
 

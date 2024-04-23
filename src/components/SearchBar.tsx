@@ -50,6 +50,7 @@ export const SearchBar = () => {
 					onChange={handleOnChange}
 					className='absolute inset-0 h-full'
 					ref={inputRef}
+					placeholder='Try “winter jacket”...'
 					value={query}
 					disabled={isSearching}
 				/>
