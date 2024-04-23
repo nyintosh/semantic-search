@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 
 import { Icons, SearchBar } from '@/components';
 
+import { Suspense } from 'react';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -56,7 +57,9 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 							</p>
 
 							<div className='mx-auto mt-12 flex w-full max-w-2xl flex-col'>
-								<SearchBar />
+								<Suspense>
+									<SearchBar />
+								</Suspense>
 								{children}
 							</div>
 						</div>
