@@ -40,7 +40,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 						/>
 					</svg>
 
-					<div className='mx-auto max-w-7xl gap-16 px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-24'>
+					<div className='mx-auto max-w-7xl gap-16 px-6 pb-24 pt-16 sm:pb-32 lg:flex lg:px-8 lg:py-24'>
 						<div className='flex h-full w-full flex-col items-center gap-4'>
 							<Icons.Sparkles className='size-16' />
 
@@ -54,7 +54,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 								results.
 							</p>
 
-							<div className='mx-auto mt-16 flex w-full max-w-2xl flex-col'>
+							<div className='mx-auto mt-12 flex w-full max-w-2xl flex-col'>
 								<SearchBar />
 								{children}
 							</div>
