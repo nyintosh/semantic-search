@@ -1,12 +1,15 @@
 import { faker } from '@faker-js/faker';
 import { neon } from '@neondatabase/serverless';
+import { Index } from '@upstash/vector';
 import 'dotenv/config';
-// import { Index } from '@upstash/vector';
 import { drizzle } from 'drizzle-orm/neon-http';
+import { v4 as uuidv4 } from 'uuid';
+
+import { vectorize } from '@/lib';
 
 import { productsTable } from './schema';
 
-// const index = new Index();
+const index = new Index();
 
 (async function main() {
 	const connector = neon(process.env.DATABASE_URL!);
@@ -71,8 +74,7 @@ import { productsTable } from './schema';
 		},
 		{
 			imageUrl: 'light_parka_jacket_1.png',
-			description:
-				"This light parka offers a breathable, water-resistant layer, ideal for unpredictable weather, with a sleek design that doesn't compromise on style.",
+			description: `This light parka offers a breathable, water-resistant layer, ideal for unpredictable weather, with a sleek design that doesn't compromise on style.`,
 		},
 		{
 			imageUrl: 'light_trench_coat_1.png',
@@ -102,6 +104,7 @@ import { productsTable } from './schema';
 
 	const products: (typeof productsTable.$inferInsert)[] = productData.map(
 		({ imageUrl, description }) => ({
+			id: uuidv4(),
 			imageUrl,
 			name: formatFileName(imageUrl),
 			price: parseFloat(faker.commerce.price({ min: 40, max: 200 })),
@@ -112,17 +115,11 @@ import { productsTable } from './schema';
 	products.forEach(async (product) => {
 		await db.insert(productsTable).values(product).onConflictDoNothing();
 
-		// await index.upsert({
-		// 	id: product.id!,
-		// 	vector: await vectorize(`${product.name}: ${product.description}`),
-		// 	metadata: {
-		// 		id: product.id,
-		// 		name: product.name,
-		// 		description: product.description,
-		// 		price: product.price,
-		// 		imageUrl: product.imageUrl,
-		// 	},
-		// });
+		await index.upsert({
+			id: product.id!,
+			vector: await vectorize(`${product.name}: ${product.description}`),
+			metadata: product,
+		});
 	});
 })();
 
