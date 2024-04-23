@@ -1,14 +1,16 @@
 'use client';
 
 import { Loader2Icon, SearchIcon } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useRef, useState, useTransition } from 'react';
 
 import { Button, Input } from './ui';
 
 export const SearchBar = () => {
+	const searchParams = useSearchParams();
+
 	const inputRef = useRef<HTMLInputElement>(null);
-	const [query, setQuery] = useState('');
+	const [query, setQuery] = useState(searchParams.get('q') ?? '');
 	const [isSearching, startTransition] = useTransition();
 
 	const router = useRouter();
@@ -30,6 +32,7 @@ export const SearchBar = () => {
 
 	const $search = () => {
 		if (!query) {
+			router.push('/');
 			inputRef.current?.focus();
 			return;
 		}
@@ -54,7 +57,6 @@ export const SearchBar = () => {
 				<Button
 					onClick={$search}
 					className='absolute inset-y-0 right-0 h-full rounded-l-none'
-					size='sm'
 					disabled={isSearching}
 				>
 					{isSearching ? (
