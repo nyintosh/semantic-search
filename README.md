@@ -116,4 +116,4 @@ We welcome contributions! If you'd like to contribute to GEMINI-CE, please follo
 
 ## Live Preview
 
-You can preview the live version of the project at [https://semantic-search.vercel.app](https://semantic-search.vercel.app).
+You can preview the live version of the project at [https://nk-semantic-search.vercel.app](https://nk-semantic-search.vercel.app).
