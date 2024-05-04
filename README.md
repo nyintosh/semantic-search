@@ -1,4 +1,4 @@
-# SEMANTIC-SEARCH
+# Semantic Search
 
 ## Description
 
