@@ -1,5 +1,7 @@
 # Semantic Search
 
+<img width="1408" alt="SCR-20240703-khki" src="https://github.com/nyintosh/semantic-search/assets/56629705/132c6228-6551-48d2-bd7b-15e6a05fde23">
+
 ## Description
 
 An elegant hybrid search engine that significantly enhances search precision by seamlessly querying semantically related results using embedding AI models.
